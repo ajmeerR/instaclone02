@@ -9,7 +9,7 @@ const UserProfile = () => {
     const [showfollow, setShowFollow] = useState(state ? !state.following.includes(userid) : true)
     //const [showfollow, setShowFollow] = useState(userProfile.following.filter(item => item == userid))
     useEffect(() => {
-        fetch(`http://localhost:5000/user/${userid}`, {
+        fetch(`/user/${userid}`, {
             headers: {
                 Authorization: "Bearer " + localStorage.getItem("jwt")
             }
@@ -22,7 +22,7 @@ const UserProfile = () => {
     }, [])
 
     const followUser = () => {
-        fetch('http://localhost:5000/follow', {
+        fetch('/follow', {
             method: "put",
             headers: {
                 "Content-Type": "application/json",
@@ -49,7 +49,7 @@ const UserProfile = () => {
             })
     }
     const unfollowUser = () => {
-        fetch('http://localhost:5000/unfollow', {
+        fetch('/unfollow', {
             method: "put",
             headers: {
                 "Content-Type": "application/json",

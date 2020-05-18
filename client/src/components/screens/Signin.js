@@ -13,7 +13,7 @@ const Signin = () => {
         if (!/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/.test(email)) {
             return M.toast({ html: "invalid email", classes: "#b71c1c red darken-4" })
         }
-        fetch("http://localhost:5000/signin", {
+        fetch("/signin", {
             method: "post",
             headers: {
                 "Content-Type": "application/json"

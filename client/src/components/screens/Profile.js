@@ -6,7 +6,7 @@ const Profile = () => {
     const { state, dispatch } = useContext(UserContext)
     const [image, setImage] = useState("")
     useEffect(() => {
-        fetch("http://localhost:5000/mypost", {
+        fetch("/mypost", {
             headers: {
                 Authorization: "Bearer " + localStorage.getItem("jwt")
             }
@@ -27,7 +27,7 @@ const Profile = () => {
                 body: data,
             }).then(res => res.json())
                 .then(data => {
-                    fetch("http://localhost:5000/updatepic", {
+                    fetch("/updatepic", {
                         method: "put",
                         headers: {
                             "Content-Type": "application/json",
