@@ -14,6 +14,8 @@ const userSchema = new mongoose.Schema({
         type: String,
         required: true
     },
+    // resetToken: String,
+    // expireToken: Date,
     pic: {
         type: String,
         default: "https://res.cloudinary.com/clonegram/image/upload/v1589535017/blank-profile-picture-973460_640_yglhc7.png"

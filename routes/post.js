@@ -114,6 +114,7 @@ router.put('/comment', requireLogin, (req, res) => {
         })
 })
 
+//not tested ,just coded
 /*router.put('/delcomment', requireLogin, (req, res) => {
     const comment = {
         text: req.body.text,

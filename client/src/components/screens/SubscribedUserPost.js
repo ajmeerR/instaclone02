@@ -128,7 +128,7 @@ const Home = () => {
             }
         }).then(res => res.json())
             .then(result => {
-                console.log(result)
+                //console.log(result)
                 const newData = data.filter(item => {
                     return item._id != result._id
                 })
@@ -139,8 +139,6 @@ const Home = () => {
         <div className="home">
             {
                 data.map(item => {
-                    console.log(item.postedBy)
-
                     return (
                         <div className="card home-card" key={item._id}>
                             <h5 style={{ padding: "5px" }}>

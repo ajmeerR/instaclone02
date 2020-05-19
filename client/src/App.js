@@ -25,6 +25,8 @@ const Routing = () => {
       //history.push("/")
     }
     else {
+      //reset view must be created and route must be added in switch
+      //if (!history.location.pathname.startsWith('/reset'))
       history.push('/signin')
     }
   }, [])

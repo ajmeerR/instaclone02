@@ -52,3 +52,11 @@ a{
   cursor: pointer;
 }
 
+.collection-item{
+  width:100%;
+}
+
+.title{
+  margin-left: 10px;
+}
+
