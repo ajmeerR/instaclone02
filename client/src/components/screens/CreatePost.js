@@ -28,7 +28,7 @@ const CreatePost = () => {
                     }
                     else {
                         M.toast({ html: "created post successfuly", classes: "#66bb6a green lighten-1" })
-                        history.push('/')
+                        history.push('/explore')
                     }
                 }).catch(err => {
                     console.log(err)

@@ -142,7 +142,7 @@ const Home = () => {
                     return (
                         <div className="card home-card" key={item._id}>
                             <h5 style={{ padding: "5px" }}>
-                                <span style={{ marginRight: "5px" }}><img style={{ marginTop: "5px", width: "40px", borderRadius: "20px" }}
+                                <span style={{ marginRight: "5px" }}><img style={{ marginTop: "5px", width: "35px", height: "35px", borderRadius: "17.5px" }}
                                     src={item.postedBy.pic} /></span><Link to={item.postedBy._id !== state._id ? "/profile/" + item.postedBy._id : "/profile"}>   {item.postedBy.name}</Link> {item.postedBy._id == state._id &&
                                         <i className="material-icons" style={{ float: "right" }}
                                             onClick={() => deletePost(item._id)} >delete</i>}

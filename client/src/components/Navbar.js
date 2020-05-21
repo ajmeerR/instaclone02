@@ -41,6 +41,52 @@ const Navbar = () => {
 
     }
 
+    //as seperate function because to check for the presence of state,else it fires error on logout
+    const renderSearch = () => {
+        if (state) {
+            return (
+                <div>
+                    <div className="modal-content">
+                        <input
+                            type="text"
+                            placeholder="Search Users"
+                            value={search}
+                            onChange={(e) => fetchUsers(e.target.value)} />
+                        <ul>
+                            {
+                                userDetails.map(item => {
+                                    console.log(item)
+                                    return <Link to={item._id !== state._id ? "/profile/" + item._id : "/profile"}
+                                        onClick={() => {
+                                            M.Modal.getInstance(searchModal.current).close()
+                                            setSearch("")
+                                            //window.open(item._id !== state._id ? "/profile/" + item._id : "/profile", "_self")
+                                        }
+                                        }>
+                                        <li className="collection-item avatar">
+                                            <img src={item.pic} style={{ width: "35px", height: "35px", borderRadius: "17.5px" }} alt="" className="circle" />
+                                            <span className="title" >{item.name}</span>
+                                        </li></Link>
+                                })
+                            }
+
+                        </ul>
+                        {/* <ul class="collection">
+                        <li class="collection-item">Alvin</li>
+                        <li class="collection-item">Alvin</li>
+                        <li class="collection-item">Alvin</li>
+                        <li class="collection-item">Alvin</li>
+                    </ul> */}
+                    </div>
+                    <div className="modal-footer">
+                        <button href="#!" className="modal-close waves-effect waves-green btn-flat" onClick={() => setSearch("")}>Close</button>
+                    </div>
+                </div>
+
+            )
+        }
+    }
+
     const fetchUsers = (query) => {
         setSearch(query)
         fetch('/searchusers', {
@@ -66,40 +112,7 @@ const Navbar = () => {
                 </ul>
             </div>
             <div id="modal1" className="modal" ref={searchModal} style={{ color: "black" }}>
-                <div className="modal-content">
-                    <input
-                        type="text"
-                        placeholder="Search Users"
-                        value={search}
-                        onChange={(e) => fetchUsers(e.target.value)} />
-                    <ul>
-                        {
-                            userDetails.map(item => {
-                                return <Link
-                                    onClick={() => {
-                                        M.Modal.getInstance(searchModal.current).close()
-                                        setSearch("")
-                                        window.open(item._id !== state._id ? "/profile/" + item._id : "/profile", "_self")
-                                    }
-                                    }>
-                                    <li className="collection-item avatar">
-                                        <img src={item.pic} style={{ width: "35px", height: "35px", borderRadius: "17.5px" }} alt="" className="circle" />
-                                        <span className="title" >{item.name}</span>
-                                    </li></Link>
-                            })
-                        }
-
-                    </ul>
-                    {/* <ul class="collection">
-                        <li class="collection-item">Alvin</li>
-                        <li class="collection-item">Alvin</li>
-                        <li class="collection-item">Alvin</li>
-                        <li class="collection-item">Alvin</li>
-                    </ul> */}
-                </div>
-                <div className="modal-footer">
-                    <button href="#!" className="modal-close waves-effect waves-green btn-flat" onClick={() => setSearch("")}>Close</button>
-                </div>
+                {renderSearch()}
             </div>
         </nav >
     )
