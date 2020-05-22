@@ -2,13 +2,13 @@ import React, { useEffect, createContext, useReducer, useContext } from 'react';
 import Navbar from './components/Navbar';
 import "./App.css";
 import { BrowserRouter, Route, Switch, useHistory } from 'react-router-dom'
-import Home from './components/screens/Home';
-import Signup from './components/screens/Signup';
-import Signin from './components/screens/Signin';
-import Profile from './components/screens/Profile';
-import CreatePost from './components/screens/CreatePost';
-import UserProfile from './components/screens/UserProfile';
-import Subpost from './components/screens/SubscribedUserPost';
+import Home from './views/Home';
+import Signup from './views/Signup';
+import Signin from './views/Signin';
+import Profile from './views/Profile';
+import CreatePost from './views/CreatePost';
+import UserProfile from './views/UserProfile';
+import Subpost from './views/SubscribedUserPost';
 import { reducer, initialState } from './reducers/userReducer'
 
 

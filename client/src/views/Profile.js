@@ -1,5 +1,6 @@
 import React, { useEffect, useState, useContext } from 'react';
-import { UserContext } from '../../App'
+import { UserContext } from '../App';
+import profileStyle from '../styles/profile';
 
 const Profile = () => {
     const [mypics, setPics] = useState([])
@@ -56,31 +57,24 @@ const Profile = () => {
 
     return (
         <div style={{ maxWidth: "550px", margin: "0px auto" }}>
-            <div style={{
-                margin: "18px 0px",
-                borderBottom: "1px solid grey"
-            }}>
-                <div style={{
-
-                    display: "flex",
-                    justifyContent: "space-around",
-                }}>
+            <div style={profileStyle.wholeContainer}>
+                <div style={profileStyle.midBarrierContainer}>
                     <div>
-                        <img style={{ width: "160px", height: "160px", borderRadius: "80px" }}
+                        <img style={profileStyle.dpStyle}
                             src={state ? state.pic : "loading"} />
 
                     </div>
                     <div>
                         <h4>{state ? state.name : "Loading"}</h4>
                         <h5>{state ? state.email : "Loading"}</h5>
-                        <div style={{ display: "flex", justifyContent: "space-between", width: "108%" }}>
+                        <div style={profileStyle.infoText}>
                             <h6>{mypics.length} posts</h6>
                             <h6>{state ? state.followers.length : "0"} followers</h6>
                             <h6>{state ? state.following.length : "0"} following</h6>
                         </div>
                     </div>
                 </div>
-                <div className="file-field input-field" style={{ margin: "10px 0px 10px 70px" }}>
+                <div className="file-field input-field" style={profileStyle.fileUpload}>
                     <div className="btn #ef5350 blue darken-1">
                         <span>Change pic</span>
                         <input type="file" onChange={(e) => updatePic(e.target.files[0])} />

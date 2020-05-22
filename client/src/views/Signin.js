@@ -1,6 +1,6 @@
 import React, { useState, useContext } from 'react';
 import { Link, useHistory } from 'react-router-dom';
-import { UserContext } from '../../App'
+import { UserContext } from '../App';
 import M from 'materialize-css';
 
 
@@ -9,6 +9,7 @@ const Signin = () => {
     const history = useHistory()
     const [password, setPassword] = useState("")
     const [email, setEmail] = useState("")
+    const [pwdVisibility, setpwdVisibility] = useState(false)
     const PostData = () => {
         if (!/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/.test(email)) {
             return M.toast({ html: "invalid email", classes: "#b71c1c red darken-4" })
@@ -38,6 +39,8 @@ const Signin = () => {
                 console.log(err)
             })
     }
+
+
     return (
         <div className="mycard" >
             <div className="card auth-card input-field">
@@ -48,21 +51,23 @@ const Signin = () => {
                     value={email}
                     onChange={(e) => setEmail(e.target.value)} />
                 <input
-                    type="password"
+                    type={pwdVisibility ? "text" : "password"}
                     placeholder="password"
                     value={password}
                     onChange={(e) => setPassword(e.target.value)} />
+                <i className="material-icons pwd-icon" onClick={() => setpwdVisibility(!pwdVisibility)}>remove_red_eye</i>
                 <button className
-                    ="btn waves-effect waves-light #ef5350 blue darken-1" onClick={() => PostData()} >
+                    ="btn-hover color-4 submit" onClick={() => PostData()} >
                     Login
                 </button>
-                <h6>
+                <h6 style={{ marginLeft: "10px" }}>
                     <Link to="/signup">don't have an account?</Link>
                 </h6>
 
             </div>
         </div>
     )
+
 }
 
 export default Signin;

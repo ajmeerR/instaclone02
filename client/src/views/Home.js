@@ -1,6 +1,7 @@
 import React, { useState, useEffect, useContext } from 'react';
 import { Redirect, Link } from 'react-router-dom';
-import { UserContext } from '../../App'
+import { UserContext } from '../App';
+import homeStyle from "../styles/home.js";
 
 const Home = () => {
     const { state, dispatch } = useContext(UserContext)
@@ -142,13 +143,11 @@ const Home = () => {
 
                     return (
                         <div className="card home-card" key={item._id}>
-                            <h5 style={{ padding: "5px" }}>
-                                <span style={{ marginRight: "5px" }}><img style={{
-                                    marginTop: "5px", width: "35px", height: "35px", borderRadius: "17.5px"
-                                }}
+                            <h5 style={homeStyle.cardName}>
+                                <span ><img style={homeStyle.cardDP}
                                     src={item.postedBy.pic} /></span>
                                 <Link to={item.postedBy._id !== state._id ? "/profile/" + item.postedBy._id : "/profile"}>{item.postedBy.name}</Link> {item.postedBy._id == state._id &&
-                                    <i className="material-icons" style={{ float: "right" }}
+                                    <i className="material-icons" style={homeStyle.delIcon}
                                         onClick={() => deletePost(item._id)} >delete</i>}
                             </h5>
                             <div className="card-image">
@@ -157,7 +156,7 @@ const Home = () => {
                             <div className="card-content">
                                 {
                                     item.likes.includes(state._id) ?
-                                        <i className="material-icons" style={{ color: "red" }} onClick={() => unlikePost(item._id)}>favorite</i>
+                                        <i className="material-icons" style={homeStyle.likeIcon} onClick={() => unlikePost(item._id)}>favorite</i>
                                         : <i className="material-icons" onClick={() => likePost(item._id)}>favorite_border</i>
                                 }
                                 <h6>{item.likes.length} likes</h6>
@@ -166,7 +165,7 @@ const Home = () => {
                                 {
                                     item.comments.map(record => {
                                         return (
-                                            <h6 key={record._id}><span style={{ fontWeight: "500" }}><Link to={record.postedBy._id !== state._id ? "/profile/" + record.postedBy._id : "/profile"}>{record.postedBy.name}</Link></span>  {record.text}
+                                            <h6 key={record._id}><span style={homeStyle.commentName}><Link to={record.postedBy._id !== state._id ? "/profile/" + record.postedBy._id : "/profile"}>{record.postedBy.name}</Link></span>  {record.text}
                                             </h6>
                                             /*{record.postedBy._id == state._id &&
                                                     <i className="material-icons" style={{ float: "right" }}

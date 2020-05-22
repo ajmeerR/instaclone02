@@ -3,6 +3,7 @@ import { Link, useHistory } from 'react-router-dom';
 import { UserContext } from '../App'
 import M from 'materialize-css';
 import "../App.css";
+import navBarStyle from '../styles/navBar'
 
 const Navbar = () => {
     const searchModal = useRef(null)
@@ -16,7 +17,7 @@ const Navbar = () => {
     const renderList = () => {
         if (state) {
             return [
-                <li key="1" style={{ color: "black" }}><i data-target="modal1" className="large material-icons modal-trigger">search</i></li>,
+                <li key="1" style={navBarStyle.makeVisible}><i data-target="modal1" className="large material-icons modal-trigger">search</i></li>,
                 <li key="2"><Link to='/profile'>Profile</Link></li>,
                 <li key="3"><Link to='/createpost'>Create Post</Link></li>,
                 <li key="4"><Link to='/explore'>Explore</Link></li>,
@@ -64,7 +65,7 @@ const Navbar = () => {
                                         }
                                         }>
                                         <li className="collection-item avatar">
-                                            <img src={item.pic} style={{ width: "35px", height: "35px", borderRadius: "17.5px" }} alt="" className="circle" />
+                                            <img src={item.pic} style={navBarStyle.searchResDp} alt="" className="circle" />
                                             <span className="title" >{item.name}</span>
                                         </li></Link>
                                 })
@@ -111,7 +112,7 @@ const Navbar = () => {
                     {renderList()}
                 </ul>
             </div>
-            <div id="modal1" className="modal" ref={searchModal} style={{ color: "black" }}>
+            <div id="modal1" className="modal" ref={searchModal} style={navBarStyle.makeVisible}>
                 {renderSearch()}
             </div>
         </nav >

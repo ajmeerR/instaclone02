@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import M from 'materialize-css';
 import { useHistory } from 'react-router-dom';
+import createStyle from '../styles/createPost';
 
 const CreatePost = () => {
     const history = useHistory()
@@ -53,12 +54,7 @@ const CreatePost = () => {
             })
     }
     return (
-        <div className="card input-fields" style={{
-            margin: "30px auto",
-            maxWidth: "500px",
-            padding: "20px",
-            textAlign: "center"
-        }}>
+        <div className="card input-fields" style={createStyle.card}>
             <input type="text"
                 placeholder="title"
                 value={title}
