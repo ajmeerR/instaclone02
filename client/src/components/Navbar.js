@@ -22,14 +22,16 @@ const Navbar = () => {
                 <li key="3"><Link to='/createpost'>Create Post</Link></li>,
                 <li key="4"><Link to='/explore'>Explore</Link></li>,
                 <li key="5">
-                    <button className
-                        ="btn waves-effect waves-light  d#b71c1c red darken-4" onClick={() => {
-                            localStorage.clear()
-                            dispatch({ type: "CLEAR" })
-                            history.push('/signin')
-                        }} >
+
+                    <i className=" Large material-icons" style={navBarStyle.logout} onClick={() => {
+                        localStorage.clear()
+                        dispatch({ type: "CLEAR" })
+                        history.push('/signin')
+                    }} > power_settings_new </i>
+                    {/* <button className
+                        ="btn waves-effect waves-light logout  d#b71c1c red darken-1" onClick={() => } >
                         Logout
-                    </button>
+                    </button> */}
                 </li >
             ]
         }

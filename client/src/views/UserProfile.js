@@ -85,7 +85,6 @@ const UserProfile = () => {
                         <div>
                             <img style={userProfileStyle.dpStyle}
                                 src={userProfile.user.pic} />
-
                         </div>
                         <div>
                             <h4>{userProfile.user.name}</h4>
@@ -97,11 +96,11 @@ const UserProfile = () => {
                             </div>
                             {showfollow
                                 ? <button className
-                                    ="btn waves-effect waves-light #ef5350 blue darken-1" onClick={() => followUser()} style={{ margin: "10px" }} >
+                                    ="btn-hover color-4 submit" onClick={() => followUser()} style={{ margin: "10px" }} >
                                     follow
                                 </button>
                                 : <button className
-                                    ="btn waves-effect waves-light #ef5350 blue darken-1" onClick={() => unfollowUser()} style={{ margin: "10px" }} >
+                                    ="btn-hover color-4 submit" onClick={() => unfollowUser()} style={{ margin: "10px" }} >
                                     Unfollow
                                 </button>}
                         </div>

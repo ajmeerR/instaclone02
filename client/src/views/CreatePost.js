@@ -66,16 +66,17 @@ const CreatePost = () => {
                 onChange={(e) => setBody(e.target.value)}
             />
             <div className="file-field input-field">
-                <div className="btn #ef5350 blue darken-1">
+                <div className="upload">
                     <span>Upload Image</span>
-                    <input type="file" onChange={(e) => setImage(e.target.files[0])} />
+                    <i className=" small material-icons upic">cloud_upload</i>
                 </div>
+                <input type="file" onChange={(e) => setImage(e.target.files[0])} />
                 <div className="file-path-wrapper">
                     <input className="file-path validate" type="text" />
                 </div>
             </div>
             <button className
-                ="btn waves-effect waves-light #ef5350 blue darken-1" onClick={() => postDetails()} >
+                ="btn-hover color-4 submit" onClick={() => postDetails()} >
                 Submit
             </button>
         </div>

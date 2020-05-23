@@ -18,7 +18,12 @@ const profileStyle = {
         width: "108%"
     },
     fileUpload: {
-        margin: "10px 0px 10px 70px"
+        margin: "10px 30px -50px",
+    },
+    futext: {
+        marginLeft: "-40px",
+        marginTop: "6px",
+        position: "absolute"
     },
     loaderPos: {
         margin: "10% 50%",

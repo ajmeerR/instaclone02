@@ -6,6 +6,7 @@ import homeStyle from '../styles/home';
 const Home = () => {
     const { state, dispatch } = useContext(UserContext)
     const [data, setData] = useState([])
+    const [cmntVisibility, setcmntVisibility] = useState(false)
     useEffect(() => {
         fetch("/getsubpost", {
             headers: {
@@ -157,27 +158,29 @@ const Home = () => {
                                         <i className="material-icons" style={homeStyle.likeIcon} onClick={() => unlikePost(item._id)}>favorite</i>
                                         : <i className="material-icons" onClick={() => likePost(item._id)}>favorite_border</i>
                                 }
+                                <i className="material-icons" onClick={() => setcmntVisibility(!cmntVisibility)}>comment</i>
                                 <h6>{item.likes.length} likes</h6>
                                 <h6>{item.title}</h6>
                                 <p>{item.body}</p>
                                 {
                                     item.comments.map(record => {
                                         //console.log(record)
-                                        return (
-
-                                            <h6 key={record._id}><span style={homeStyle.commentName}><Link to={record.postedBy._id !== state._id ? "/profile/" + record.postedBy._id : "/profile"}>{record.postedBy.name}</Link></span>  {record.text}
-                                            </h6>
-                                            /*{record.postedBy._id == state._id &&
-                                                    <i className="material-icons" style={{ float: "right" }}
-                                                        onClick={() => delComment(record._id, item._id, record.text)} >delete</i>} */
-                                        )
+                                        if (cmntVisibility) {
+                                            return (
+                                                <h6 key={record._id}><span style={homeStyle.commentName}><Link to={record.postedBy._id !== state._id ? "/profile/" + record.postedBy._id : "/profile"}>{record.postedBy.name}</Link></span>  {record.text}
+                                                </h6>
+                                                /*{record.postedBy._id == state._id &&
+                                                        <i className="material-icons" style={{ float: "right" }}
+                                                            onClick={() => delComment(record._id, item._id, record.text)} >delete</i>} */
+                                            )
+                                        }
                                     })
                                 }
                                 <form onSubmit={(e) => {
                                     e.preventDefault()
                                     makeComment(e.target[0].value, item._id)
                                 }}>
-                                    <input type="text" placeholder="add comment" />
+                                    <input style={{ display: cmntVisibility ? "block" : "none" }} type="text" placeholder="add comment" />
                                 </form>
                             </div>
                         </div>

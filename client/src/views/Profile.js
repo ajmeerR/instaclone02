@@ -75,8 +75,8 @@ const Profile = () => {
                     </div>
                 </div>
                 <div className="file-field input-field" style={profileStyle.fileUpload}>
-                    <div className="btn #ef5350 blue darken-1">
-                        <span>Change pic</span>
+                    <div className="btn-hover color-4 fsubmit">
+                        <span style={profileStyle.futext}>Change pic</span>
                         <input type="file" onChange={(e) => updatePic(e.target.files[0])} />
                     </div>
                     <div className="file-path-wrapper">
