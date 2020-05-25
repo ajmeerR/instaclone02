@@ -18,7 +18,7 @@ const profileStyle = {
         width: "108%"
     },
     fileUpload: {
-        margin: "10px 30px -50px",
+        margin: "-1% 5.5% -11%",
     },
     futext: {
         marginLeft: "-40px",

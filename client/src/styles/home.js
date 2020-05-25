@@ -17,6 +17,13 @@ const homeStyle = {
     },
     commentName: {
         fontWeight: "500"
+    },
+    name: {
+        fontWeight: 450,
+        fontSize: "smaller",
+        position: "relative",
+        top: "-7.9px",
+        fontFamily: "Raleway"
     }
 }
 export default homeStyle;

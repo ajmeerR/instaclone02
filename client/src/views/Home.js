@@ -147,7 +147,7 @@ const Home = () => {
                             <h5 style={homeStyle.cardName}>
                                 <span ><img style={homeStyle.cardDP}
                                     src={item.postedBy.pic} /></span>
-                                <Link to={item.postedBy._id !== state._id ? "/profile/" + item.postedBy._id : "/profile"}>{item.postedBy.name}</Link> {item.postedBy._id == state._id &&
+                                <Link style={homeStyle.name} to={item.postedBy._id !== state._id ? "/profile/" + item.postedBy._id : "/profile"}>{item.postedBy.name}</Link> {item.postedBy._id == state._id &&
                                     <i className="material-icons" style={homeStyle.delIcon}
                                         onClick={() => deletePost(item._id)} >delete</i>}
                             </h5>

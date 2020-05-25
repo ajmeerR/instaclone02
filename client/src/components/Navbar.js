@@ -24,10 +24,13 @@ const Navbar = () => {
                 <li key="5">
 
                     <i className=" Large material-icons" style={navBarStyle.logout} onClick={() => {
-                        localStorage.clear()
-                        dispatch({ type: "CLEAR" })
-                        history.push('/signin')
+                        if (window.confirm("Are you sure you want to logout?")) {
+                            localStorage.clear()
+                            dispatch({ type: "CLEAR" })
+                            history.push('/signin')
+                        }
                     }} > power_settings_new </i>
+
                     {/* <button className
                         ="btn waves-effect waves-light logout  d#b71c1c red darken-1" onClick={() => } >
                         Logout
